@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-9 col-12 title">
+    <h2>{{images[0].rover.name}}: {{images[0].camera.full_name}}</h2>
+  </div>
+  <div class="col-md-3 camera-select col-12 text-right">
+    <div ngbDropdown class="d-md-inline-block d-block">
+      <button class="btn btn-outline-primary" id="{{images[0].rover.name}}DropDown" ngbDropdownToggle>Toggle dropdown</button>
+      <div ngbDropdownMenu aria-labelledby="DropDown">
+        <button class="dropdown-item" *ngFor="let camera of images[0].rover.cameras" (click)="emitClick(images[0].rover.name, camera.name)">{{camera.full_name}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row images">
+  <div class="col-lg-3 col-12" *ngFor="let image of images; let i = index">
+    <div class="text-center" *ngIf="i<4">
+      <img class="img-thumbnail" src="{{image.img_src}}" alt="{{image.camera.full_name}} - {{image.id}}" />
+      <p class="text-right mt-3 img-date">{{image.earth_date | date:'MMMM dd, yyyy'}}</p>
+    </div>
+  </div>
+</div>
+<!-- (triggerEmit)="getImages(rover, camera.name, false) -->

@@ -1,0 +1,12 @@
+<h2 class="mb-3">Image of the Day</h2>
+<div class="text-center image-of-the-day">
+  <div class="loader-container" *ngIf="isLoading">
+    <div class="loader"></div>
+  </div>
+  <img *ngIf="imageOfTheDay.img_src" class="img-fluid" [class.show]="!isLoading" src="{{imageOfTheDay.img_src}}" alt="Image of the Day">
+</div>
+<div class="text-right" *ngIf="imageOfTheDay.img_src">
+  <strong>{{imageOfTheDay.rover.name}} {{imageOfTheDay.camera.name}}</strong>
+  <br>
+  <strong>{{imageOfTheDay.earth_date | date: 'MMMM dd, yyyy'}}</strong>
+</div>

@@ -1,0 +1,21 @@
+<div class="alert alert-danger" role="alert" [class.show]="showResultMsg">
+  {{resultMsg}}
+</div>
+<div>
+    <form class="d-flex justify-content-end">
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <input type="text" name="dp" class="form-control" #d [(ngModel)]="newDate" placeholder="yyyy-mm-dd" aria-label="yyyy-mm-dd">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="getImagesInit(d.value)" type="button">Filter</button>
+                </div>
+              </div>
+        </div>
+      </form>
+</div>
+<ng-container *ngIf="curiosityImages">
+  <app-rover-camera-images (click)="childClick($event)" [images]="curiosityImages" [rover]="curiosityImages[0].rover.name"></app-rover-camera-images>
+</ng-container>
+<ng-container *ngIf="opportunityImages">
+  <app-rover-camera-images (click)="childClick($event)" [images]="opportunityImages" [rover]="opportunityImages[0].rover.name"></app-rover-camera-images>
+</ng-container>

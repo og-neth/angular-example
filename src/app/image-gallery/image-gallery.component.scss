@@ -1,0 +1,12 @@
+@import "../../assets/styles/scss/_effects/_animations";
+
+.alert {
+    transition: all;
+    transition-duration: 0.5s;
+    display: none;
+}
+
+.alert.show {
+    display: block;
+    animation: fadeIn 0.25s;
+}
